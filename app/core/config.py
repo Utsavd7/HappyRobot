@@ -3,14 +3,14 @@ from pydantic_settings import BaseSettings
 from typing import Optional
 
 class Settings(BaseSettings):
-    # API Settings
-    api_key: str = "your-secure-api-key"
+    # API Settings - loaded from environment
+    api_key: str
     
-    # MongoDB Atlas
-    mongodb_url: str = "mongodb+srv://happyrobot123:happyrobot123@happyrobot.ssvmps4.mongodb.net/?retryWrites=true&w=majority&appName=happyrobot"
+    # MongoDB Atlas - loaded from environment
+    mongodb_url: str
     
-    # External APIs
-    fmcsa_api_key: str = "cdc33e44d693a3a58451898d4ec9df862c65b954"
+    # External APIs - loaded from environment
+    fmcsa_api_key: str
     
     # Redis (optional for caching)
     redis_url: Optional[str] = "redis://localhost:6379"
@@ -24,5 +24,6 @@ class Settings(BaseSettings):
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"
+        case_sensitive = False
 
 settings = Settings()
