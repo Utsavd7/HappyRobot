@@ -1,12 +1,13 @@
-from fastapi import APIRouter, HTTPException, Depends
-from sqlalchemy.orm import Session
-from typing import List, Optional
+# app/api/endpoints/loads.py
+from fastapi import APIRouter, HTTPException, Depends, Query
+from typing import List, Optional, Dict, Any
 from datetime import datetime
-from app.db.session import get_db
-from app.models.load import Load
-from app.schemas.load import LoadSearch, LoadResponse
+from app.db.sessions import get_database
+from app.models.loads import Load, CallLog
 from app.core.security import verify_api_key
+from app.services.negotiation import negotiation_service
 import logging
+from bson import ObjectId
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
