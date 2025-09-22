@@ -1,6 +1,5 @@
 from typing import Dict, Any
-from app.models.load import Load
-
+from app.models.loads import Load  # Correct - loads with 's'
 class NegotiationService:
     """Handle price negotiation logic"""
     
