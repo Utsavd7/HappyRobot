@@ -1,5 +1,7 @@
+# app/services/negotiation.py
 from typing import Dict, Any
-from app.models.loads import Load  # Correct - loads with 's'
+from app.models.loads import Load
+
 class NegotiationService:
     """Handle price negotiation logic"""
     
