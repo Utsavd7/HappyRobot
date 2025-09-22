@@ -4,7 +4,6 @@ from typing import List, Optional, Dict, Any
 from datetime import datetime
 from app.db.sessions import get_database
 from app.core.security import verify_api_key
-from app.services.negotiation import negotiation_service
 import logging
 from bson import ObjectId
 
